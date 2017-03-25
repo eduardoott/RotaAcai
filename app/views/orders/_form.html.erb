@@ -31,16 +31,8 @@
             </div>
           </div>
         <% end %>
-
-    
-            <%= item_form.nested_fields_for :add_ons do |add_on_form| %>
-              <%= add_on_form.collection_check_boxes :cup_add_on_id, CupAddOn.all, :id, :name %>
-            
-            <% end %>
-    
-    
-        <%= item_form.add_nested_fields_link :add_ons %>
-
+          <%= item_form.collection_check_boxes :add_on_ids, CupAddOn.all, :id, :name %>
+          
       </div>
     </div>
     
