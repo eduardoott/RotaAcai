@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+
+  root to: 'orders#index'
+  
   resources :orders
   resources :cup_add_ons
   resources :cups

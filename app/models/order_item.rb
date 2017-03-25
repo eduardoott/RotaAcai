@@ -4,4 +4,6 @@ class OrderItem < ApplicationRecord
 
   has_many :add_ons, class_name: 'OrderItemAddOn'
 
+  accepts_nested_attributes_for :add_ons, allow_destroy: true
+
 end

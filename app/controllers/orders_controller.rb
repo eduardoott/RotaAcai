@@ -15,6 +15,8 @@ class OrdersController < ApplicationController
   # GET /orders/new
   def new
     @order = Order.new
+    item = @order.items.build
+    item.add_ons.build
   end
 
   # GET /orders/1/edit
@@ -69,6 +71,6 @@ class OrdersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def order_params
-      params.require(:order).permit(:customer, :amount)
+      params.require(:order).permit(:customer, :amount, items_attributes: [:cup_id, add_ons_attributes: [:cup_add_on_id]])
     end
 end

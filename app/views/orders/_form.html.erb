@@ -16,8 +16,35 @@
     <%= f.text_field :customer, class: 'form-control' %>
   </div>
 
+  <legend>Itens</legend>
+
   <%= f.nested_fields_for :items do |item_form| %>
-    ff.remove_nested_fields_link
+    
+    <div class="panel panel-default">
+      <div class="panel-body">
+        
+        <% Cup.all.each do |cup| %>
+          <div class="col-lg-4">
+            <div class="form-group">
+              <%= item_form.radio_button :cup_id, cup.id %>
+              <%= item_form.label :cup_id, cup.name %>
+            </div>
+          </div>
+        <% end %>
+
+    
+            <%= item_form.nested_fields_for :add_ons do |add_on_form| %>
+              <%= add_on_form.collection_check_boxes :cup_add_on_id, CupAddOn.all, :id, :name %>
+            
+            <% end %>
+    
+    
+        <%= item_form.add_nested_fields_link :add_ons %>
+
+      </div>
+    </div>
+    
+    
   <% end %>
   <%= f.add_nested_fields_link :items %>
 

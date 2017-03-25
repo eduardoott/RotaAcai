@@ -26,10 +26,10 @@ class CupsController < ApplicationController
   def create
     File.open("public/images/#{cup_params[:image_url].original_filename}", "wb") do |f|
      f.write(cup_params[:image_url].read)
-    end
+    end if cup_params[:image_url].present?
 
     @cup = Cup.new(cup_params)
-    @cup.image_url = "public/images/#{cup_params[:image_url].original_filename}"
+    @cup.image_url = "public/images/#{cup_params[:image_url].original_filename}" if cup_params[:image_url].present?
 
     respond_to do |format|
       if @cup.save
