@@ -1,0 +1,33 @@
+<div class="col-lg-8 col-centered">
+  <p id="notice"><%= notice %></p>
+
+  <legend>Adicionais</legend>
+
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Image url</th>
+        <th>Price</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @cup_add_ons.each do |cup_add_on| %>
+        <tr>
+          <td><%= cup_add_on.name %></td>
+          <td><%= cup_add_on.image_url %></td>
+          <td><%= cup_add_on.price %></td>
+          <td><%= link_to 'Show', cup_add_on %></td>
+          <td><%= link_to 'Edit', edit_cup_add_on_path(cup_add_on) %></td>
+          <td><%= link_to 'Destroy', cup_add_on, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <br>
+
+  <%= link_to 'New Cup Add On', new_cup_add_on_path %>
+</div>

@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @cup_add_on.name %>
+</p>
+
+<p>
+  <strong>Image:</strong>
+  <%= image_tag(asset_path(@cup_add_on.image_url.gsub('public/', ''))) if @cup_add_on.image_url %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @cup_add_on.price %>
+</p>
+
+<%= link_to 'Edit', edit_cup_add_on_path(@cup_add_on) %> |
+<%= link_to 'Back', cup_add_ons_path %>

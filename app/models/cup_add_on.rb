@@ -1,0 +1,2 @@
+class CupAddOn < ApplicationRecord
+end
