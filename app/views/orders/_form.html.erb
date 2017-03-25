@@ -27,7 +27,7 @@
           <div class="col-lg-4">
             <div class="form-group">
               <%= item_form.radio_button :cup_id, cup.id %>
-              <%= item_form.label :cup_id, cup.name %>
+              <%= item_form.label :cup_id, cup.name, style: "background-image: url('#{cup.image_url ? cup.image_url.gsub('public/', '') : ''}')" %>
             </div>
           </div>
         <% end %>
