@@ -45,8 +45,17 @@ class CupsController < ApplicationController
   # PATCH/PUT /cups/1
   # PATCH/PUT /cups/1.json
   def update
+    File.open("public/images/#{cup_params[:image_url].original_filename}", "wb") do |f|
+     f.write(cup_params[:image_url].read)
+    end if cup_params[:image_url].present?
+
     respond_to do |format|
       if @cup.update(cup_params)
+        if cup_params[:image_url].present?
+          @cup.image_url = "public/images/#{cup_params[:image_url].original_filename}"
+          @cup.save!
+        end
+
         format.html { redirect_to cups_path, notice: 'Cup was successfully updated.' }
         format.json { render :show, status: :ok, location: @cup }
       else
