@@ -25,34 +25,44 @@
         
         <% Cup.all.each do |cup| %>
           <div class="col-lg-4"> 
-            <div class="cc-selector">
+            <div class="cc-selector" > <!-- class="cc-selector" -->
               <%= item_form.radio_button :cup_id, cup.id  %>
-              <%= item_form.label :cup_id, cup.name, style: "background-image: url('#{cup.image_url ? cup.image_url.gsub('public', '') : ''}')", class: "drinkcard-cc" %>
-
-
+              <%= item_form.label :cup_id, cup.name, style: " text-align: center; background-position: 30% 20%;   background-image: url('#{cup.image_url ? cup.image_url.gsub('public', '') : ''}')", class: "drinkcard-cc" %>
             </div>
           </div>
         <% end %>
-        <%= item_form.collection_check_boxes :add_on_ids, CupAddOn.all, :id, :name %>
-          
+
+        <!--
+        <%= item_form.collection_check_boxes :add_on_ids, CupAddOn.all, :id, :name %> 
+        -->
+        
+      <%= item_form.collection_check_boxes(:add_on_ids, CupAddOn.all, :id, :name) do |b| %>
+        <%= b.label class:"drinkcard-cc" do %>
+         <%=b.check_box + b.text %>
+
+        <%end%>
+    <% end %>
+      
+
       </div>
     </div>
     
-    <%= item_form.remove_nested_fields_link %>
+    <%= item_form.remove_nested_fields_link "Remover Pedido" %>
   <% end %>
-  <%= f.add_nested_fields_link :items %>
+  <%= f.add_nested_fields_link :items, "Adicionar mais copos"  %>
 
   <div class="actions">
-    <%= f.submit class: 'btn btn-primary' %>
-  
-    <label for="a2">Mastercard</label>
+  <p>
+    <%= f.submit "Criar Pedido", :class => "btn btn-success" %>
+  <p>
     
     </div>
   
+  <!--
     <div class="cc-selector">
         <input id="visa" type="radio" name="credit-card" value="visa" />
         <label class="drinkcard-cc visa" for="visa"></label>
     </div>
-
+  -->
 
 <% end %>

@@ -33,7 +33,7 @@ class CupAddOnsController < ApplicationController
 
     respond_to do |format|
       if @cup_add_on.save
-        format.html { redirect_to cup_add_ons_path, notice: 'Cup add on was successfully created.' }
+        format.html { redirect_to cup_add_ons_path, notice: 'Novo Adicional Salvo!' }
         format.json { render :show, status: :created, location: @cup_add_on }
       else
         format.html { render :new }
@@ -47,7 +47,7 @@ class CupAddOnsController < ApplicationController
   def update
     respond_to do |format|
       if @cup_add_on.update(cup_add_on_params)
-        format.html { redirect_to cup_add_ons_path, notice: 'Cup add on was successfully updated.' }
+        format.html { redirect_to cup_add_ons_path, notice: 'Adicional atualizado!' }
         format.json { render :show, status: :ok, location: @cup_add_on }
       else
         format.html { render :edit }
@@ -61,7 +61,7 @@ class CupAddOnsController < ApplicationController
   def destroy
     @cup_add_on.destroy
     respond_to do |format|
-      format.html { redirect_to cup_add_ons_url, notice: 'Cup add on was successfully destroyed.' }
+      format.html { redirect_to cup_add_ons_url, notice: 'Adicional apagado!' }
       format.json { head :no_content }
     end
   end
