@@ -1,19 +1,21 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Name:</strong>
+  <strong>Descrição:</strong>
   <%= @cup.name %>
 </p>
 
-<p>
-  <strong>Image:</strong>
+<p >
+  <strong>Imagem:</strong>
+  
   <%= image_tag(asset_path(@cup.image_url.gsub('public/', ''))) if @cup.image_url %>
+ 
 </p>
 
 <p>
-  <strong>Price:</strong>
+  <strong>Pre&ccedil;o:</strong>
   <%= @cup.price %>
 </p>
 
-<%= link_to 'Edit', edit_cup_path(@cup) %> |
-<%= link_to 'Back', cups_path %>
+<%= link_to 'Editar', edit_cup_path(@cup) %> |
+<%= link_to 'Voltar', cups_path %>

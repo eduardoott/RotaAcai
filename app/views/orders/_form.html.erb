@@ -24,10 +24,12 @@
       <div class="panel-body">
         
         <% Cup.all.each do |cup| %>
-          <div class="col-lg-4">
-            <div class="form-group">
-              <%= item_form.radio_button :cup_id, cup.id %>
-              <%= item_form.label :cup_id, cup.name, style: "background-image: url('#{cup.image_url ? cup.image_url.gsub('public', '') : ''}')", class: 'cup-selector-label' %>
+          <div class="col-lg-4"> 
+            <div class="cc-selector">
+              <%= item_form.radio_button :cup_id, cup.id  %>
+              <%= item_form.label :cup_id, cup.name, style: "background-image: url('#{cup.image_url ? cup.image_url.gsub('public', '') : ''}')", class: "drinkcard-cc" %>
+
+
             </div>
           </div>
         <% end %>
@@ -42,5 +44,15 @@
 
   <div class="actions">
     <%= f.submit class: 'btn btn-primary' %>
-  </div>
+  
+    <label for="a2">Mastercard</label>
+    
+    </div>
+  
+    <div class="cc-selector">
+        <input id="visa" type="radio" name="credit-card" value="visa" />
+        <label class="drinkcard-cc visa" for="visa"></label>
+    </div>
+
+
 <% end %>

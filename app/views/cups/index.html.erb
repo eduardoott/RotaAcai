@@ -6,9 +6,9 @@
   <table class="table table-hover">
     <thead>
       <tr>
-        <th>Name</th>
-        <th>Image url</th>
-        <th>Price</th>
+        <th>Nome</th>
+        <th>Imagem</th>
+        <th>Preço</th>
         <th colspan="3"></th>
       </tr>
     </thead>
@@ -17,11 +17,11 @@
       <% @cups.each do |cup| %>
         <tr>
           <td><%= cup.name %></td>
-          <td><%= cup.image_url %></td>
+          <td> <img src=<%= asset_path(cup.image_url.gsub('public/', '')) %> width="50" height="80"> </td>
           <td><%= cup.price %></td>
-          <td><%= link_to 'Show', cup %></td>
-          <td><%= link_to 'Edit', edit_cup_path(cup) %></td>
-          <td><%= link_to 'Destroy', cup, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td><%= link_to 'Mostrar', cup %></td>
+          <td><%= link_to 'Editar', edit_cup_path(cup) %></td>
+          <td><%= link_to 'Excluir', cup, method: :delete, data: { confirm: 'Tem certeza que deseja excluir?' } %></td>
         </tr>
       <% end %>
     </tbody>
@@ -29,6 +29,6 @@
 
   <br>
 
-  <%= link_to 'New Cup', new_cup_path %>
+  <%= link_to 'Novo Copo', new_cup_path, :class => "btn btn-success" %>
 
 </div>

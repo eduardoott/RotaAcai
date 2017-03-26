@@ -33,7 +33,7 @@ class CupsController < ApplicationController
 
     respond_to do |format|
       if @cup.save
-        format.html { redirect_to cups_path, notice: 'Cup was successfully created.' }
+        format.html { redirect_to cups_path, notice: 'Novo copo criado!' }
         format.json { render :show, status: :created, location: @cup }
       else
         format.html { render :new }
@@ -56,7 +56,7 @@ class CupsController < ApplicationController
           @cup.save!
         end
 
-        format.html { redirect_to cups_path, notice: 'Cup was successfully updated.' }
+        format.html { redirect_to cups_path, notice: 'Copo atualizado!.' }
         format.json { render :show, status: :ok, location: @cup }
       else
         format.html { render :edit }
@@ -70,7 +70,7 @@ class CupsController < ApplicationController
   def destroy
     @cup.destroy
     respond_to do |format|
-      format.html { redirect_to cups_url, notice: 'Cup was successfully destroyed.' }
+      format.html { redirect_to cups_url, notice: 'Copo excluído!' }
       format.json { head :no_content }
     end
   end

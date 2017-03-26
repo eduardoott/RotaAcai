@@ -12,7 +12,7 @@
   <% end %>
 
   <div class="form-group">
-    <%= f.label :name %>
+    <%= f.label :name, "Nome" %>
     <%= f.text_field :name, class: 'form-control' %>
   </div>
 
@@ -20,20 +20,21 @@
   <div class="row">
     <div class="col-lg-6">
       <div class="form-group">
-        <%= f.label :image_url %>
+        <%= f.label :image_url, "Imagem" %>
         <%= f.file_field :image_url, class: 'form-control' %>
       </div>
     </div>
 
     <div class="col-lg-6">
       <div class="form-group">
-        <%= f.label :price %>
+        <%= f.label :price, "Preço" %>
         <%= f.number_field :price, class: 'form-control', step: '0.01' %>
       </div>
     </div>
   </div>
 
   <div class="actions">
-    <%= f.submit class: 'btn btn-primary' %>
+    <%= f.submit "Criar Adicional", :class => "btn btn-success" %>
+    <p>
   </div>
 <% end %>
