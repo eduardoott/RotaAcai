@@ -12,7 +12,7 @@
   <% end %>
 
   <div class="form-group">
-    <%= f.label :customer %>
+    <%= f.label  :Cliente %>
     <%= f.text_field :customer, class: 'form-control' %>
   </div>
 
@@ -25,9 +25,10 @@
         
         <% Cup.all.each do |cup| %>
           <div class="col-lg-4"> 
-            <div class="cc-selector" > <!-- class="cc-selector" -->
-              <%= item_form.radio_button :cup_id, cup.id  %>
-              <%= item_form.label :cup_id, cup.name, style: " text-align: center; background-position: 30% 20%;   background-image: url('#{cup.image_url ? cup.image_url.gsub('public', '') : ''}')", class: "drinkcard-cc" %>
+            <div class="radio" class="cc-selector" > <!-- class="cc-selector" -->
+              <%= item_form.radio_button :cup_id, cup.id %>
+              <%= item_form.label :cup_id, cup.name %>
+             <!-- <%= item_form.label :cup_id, cup.name, style: " text-align: center; background-image: url('#{cup.image_url ? cup.image_url.gsub('public', '') : ''}')", class: "drinkcard-cc" %> -->
             </div>
           </div>
         <% end %>
@@ -53,7 +54,7 @@
 
   <div class="actions">
   <p>
-    <%= f.submit "Criar Pedido", :class => "btn btn-success" %>
+    <%= f.submit "Salvar Pedido", :class => "btn btn-success" %>
   <p>
     
     </div>

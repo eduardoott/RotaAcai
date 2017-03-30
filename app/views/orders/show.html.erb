@@ -1,14 +1,37 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Customer:</strong>
+  <strong>Cliente:</strong>
   <%= @order.customer %>
 </p>
 
 <p>
-  <strong>Amount:</strong>
-  <%= @order.amount %>
+
+  <strong>Pedido:</strong>
+  	  
+          <% @order.items.each do |item|  %>
+          <p>
+          <strong>Copo:</strong>
+              <%= item.cup.name%>
+              </p>
+              <p>
+              <strong>Adicionais:</strong>
+              </p>
+              <% item.add_ons.each do |add_on|  %>
+                | <%= add_on.name%>
+      <% end %>         
+      <p></p>
+    <% end %>
+
+
 </p>
 
+<p>
+  <strong>Total:</strong>
+  <%= @order.amount %>
+</p>
+<p>
+<a onclick='window.print(); return false;' class='btn btn-success'>Imprimir</a>
+</p>
 <%= link_to 'Editar', edit_order_path(@order) %> |
 <%= link_to 'Voltar', orders_path %>
